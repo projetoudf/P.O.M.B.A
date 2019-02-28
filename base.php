@@ -11,7 +11,7 @@
     <title>P.O.M.B.A</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-4">SIDEBAR</div>
         <div class="col-8">CONTENT</div>

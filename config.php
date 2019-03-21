@@ -9,9 +9,9 @@
 
 	//inclusão de páginas
 	switch (@$_REQUEST["page"]) {
-		//advogado		
-		case 'cad-advogado':
-			include("advogado/cadastrar-advogado.php");
+		//cadastro		
+		case 'cadastro':
+			include("cadastro.php");
 			break;
 		case 'edi-advogado':
 			include("advogado/editar-advogado.php");

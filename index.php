@@ -107,12 +107,19 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
+                        <?php
+					        if (!isset($_SESSION['email'])){ ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Bem vindo, Fulano!</a>
+                                <a role="button" class="btn btn-success my-3" href="index.php?page=cadastro">Cadastro</a>
+                            </li>
+                            <?php } else{ ?>
+                            <li class="nav-item">
+                                <a class="nav-link">Bem vindo, Fulano!</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">(figura de logout)Sair</a>
+                                <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i>Sair</a>
                             </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

@@ -1,4 +1,3 @@
-
 <h2 class="text-center">Cadastro</h2>
 <h4 class="text-center">Preencha o formulário e clique em enviar</h4>
 <form>
@@ -14,20 +13,19 @@
         </div>
     </div>
     <div class="form-row col">
-
-    <div class="form-group col">
-        <label for="dataNascimento">Data de nascimento</label>
-        <input type="date" class="form-control" id="dataNascimento" placeholder="Data de nascimento">
-    </div>
-    <div class="form-group col-md-6">
-        <label for="sexo">Sexo</label>
-        <select id="sexo" class="form-control">
-            <option selected>Escolher...</option>
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-            <option value="nf">Não informado</option>
-        </select>
-    </div>
+        <div class="form-group col-md-6">
+            <label for="dataNascimento">Data de nascimento</label>
+            <input type="date" class="form-control" id="dataNascimento" placeholder="Data de nascimento">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="sexo">Sexo</label>
+            <select id="sexo" class="form-control">
+                <option selected>Escolher...</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="nf">Não informado</option>
+            </select>
+        </div>
     </div>
     <div class="form-row col">
         <div class="form-group col-md-6">
@@ -40,7 +38,7 @@
         </div>
     </div>
     <div class="form-row col">
-    <a role="button" class="btn btn-danger btn-lg" href="index.php">Cancelar</a>
+        <a role="button" class="btn btn-danger btn-lg" href="index.php">Cancelar</a>
 
         <button type="submit" class="btn btn-primary btn-lg ml-auto">Enviar</button>
     </div>

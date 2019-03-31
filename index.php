@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    header('Content-type: text/html; charset=UTF-8');
+
+?> 
+
 <!DOCTYPE html>
 <html>
 
@@ -126,7 +132,7 @@
             </nav>
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <?php include("config.php"); ?>
                 </div>
             </div>

@@ -252,3 +252,10 @@ a.article:hover {
         display: none;
     }
 }
+
+
+/* Nosso CSS */
+
+.border-blue {
+    border-color: #7386D5 !important;
+}

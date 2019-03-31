@@ -22,12 +22,12 @@
 		case 'sal-advogado':
 			include("advogado/salvar-advogado.php");
 			break;
-		//cliente		
-		case 'cad-cliente':
-			include("cliente/cadastrar-cliente.php");
+		//curso		
+		case 'adicionarcurso':
+			include("curso/adicionarcurso.php");
 			break;
-		case 'edi-cliente':
-			include("cliente/editar-cliente.php");
+		case 'informardisciplinas':
+			include("curso/informardisciplinas.php");
 			break;
 		case 'lis-cliente':
 			include("cliente/listar-cliente.php");

@@ -1,20 +1,16 @@
 <?php
-	//conexão com o banco de dados
-	$host = "localhost";
-	$user = "u684394229_root";
-	$pass = "udf2019";
-	$db   = "u684394229_udf";
+	ini_set('default_charset', 'UTF-8');
 
-	$conn = new mysqli($host,$user,$pass,$db) or die($conn->error);
+	require "conn.php";
 
 	//inclusão de páginas
-	switch ($_REQUEST["page"]) {
+	switch (@$_REQUEST["page"]) {
 		//cadastro		
 		case 'cadastro':
 			include("cadastro.php");
 			break;
-		case 'edi-advogado':
-			include("advogado/editar-advogado.php");
+		case 'login':
+			include("login.php");
 			break;
 		case 'lis-advogado':
 			include("advogado/listar-advogado.php");

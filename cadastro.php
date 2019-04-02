@@ -1,25 +1,6 @@
-<?php
-if (isset($_REQUEST['nome'])){
-		$nome = $_REQUEST['nome'];
-		$dataNascimento = $_REQUEST['dataNascimento']; 
-		$sexo = $_REQUEST['sexo'];
-		$email = $_REQUEST['email'];
-		$senha = make_hash($_REQUEST['senha']); 
-		$sql = "INSERT INTO cadastro (nome,dataNascimento,sexo,email,senha) VALUES ('$nome', '$nascimento', '$sexo', '$email', '$senha')";
-		mysqli_query($db,$sql);
-		// success
-		if($sql){
-            echo '<script type="application/javascript">alert("Registro realizado. Faça o Login!"); window.location.href ="index.php";</script>';
-
-		}else{
-			echo '<script type="application/javascript">alert("Houve um problema. Tente novamente...".mysql_error()); window.location.href ="index.php";</script>';
-		}
-}
-?>
-
 <h2 class="text-center">Cadastro</h2>
 <h4 class="text-center">Preencha o formulário e clique em enviar</h4>
-<form>
+<form action="enviarCadastro.php">
     <div class="form-row col">
 
         <div class="form-group col-md-6">
@@ -38,7 +19,7 @@ if (isset($_REQUEST['nome'])){
         </div>
         <div class="form-group col-md-6">
             <label for="sexo">Sexo</label>
-            <select id="sexo" class="form-control">
+            <select id="sexo" name="sexo" class="form-control">
                 <option selected>Escolher...</option>
                 <option value="masculino">Masculino</option>
                 <option value="feminino">Feminino</option>
@@ -49,7 +30,7 @@ if (isset($_REQUEST['nome'])){
     <div class="form-row col">
         <div class="form-group col-md-6">
             <label for="senha">Senha</label>
-            <input type="password" class="form-control" id="senha" placeholder="Senha">
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
         </div>
         <div class="form-group col-md-6">
             <label for="confirmarSenha">Confirme a Senha</label>

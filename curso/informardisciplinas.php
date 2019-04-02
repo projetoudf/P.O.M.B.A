@@ -19,24 +19,43 @@
           </div>
           <div class="form-group col-sm-6">
             <label for="qtdDisciplinas">Cai na PRI?</label>
-            <input type="email" class="form-control" id="qtdDisciplinas" name="qtdDisciplinas"
-              placeholder="Select com sim ou nao">
+            <select class="custom-select" name="qtdDisciplinas" id="qtdDisciplinas" required>
+            <option value="">Escolha..</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select> 
           </div>
         </div>
         <div class="form-row col">
           <div class="form-group col-sm-4">
-            <label for="semestre">Dia</label>
-            <input type="email" class="form-control" id="semestre" name="semestre" placeholder="Select de seg a sab">
+            <label for="dia">Dia</label>
+            <select class="custom-select" name="dia" id="dia" required>
+            <option value="">Escolha..</option>
+              <option value="segunda">Segunda</option>
+              <option value="terca">Terça</option>
+              <option value="quarta">Quarta</option>
+              <option value="quinta">Quinta</option>
+              <option value="sexta">Sexta</option>
+              <option value="sabado">Sábado</option>
+            </select>          
           </div>
           <div class="form-group col-sm-4">
-            <label for="qtdDisciplinas">Horário</label>
-            <input type="email" class="form-control" id="qtdDisciplinas" name="qtdDisciplinas"
-              placeholder="select com 1, 2 ou 1 e 2">
+            <label for="horario">Horário</label>
+            <select class="custom-select" name="horario" id="horario" required>
+            <option value="">Escolha..</option>
+              <option value="primeiro">Primeiro</option>
+              <option value="segundo">Segundo</option>
+              <option value="integral">Primeiro e Segundo</option>
+            </select>          
           </div>
           <div class="form-group col-sm-4">
             <label for="qtdDisciplinas">Turno</label>
-            <input type="email" class="form-control" id="qtdDisciplinas" name="qtdDisciplinas"
-              placeholder="select com mat, vesp, not">
+            <select class="custom-select" name="horario" id="horario" required>
+            <option value="">Escolha..</option>
+              <option value="matutino">Matutino</option>
+              <option value="vespertino">Vespertino</option>
+              <option value="noturno">Noturno</option>
+            </select>
           </div>
         </div>
       </div>

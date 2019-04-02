@@ -6,18 +6,30 @@
   <div class="form-row col">
     <div class="form-group col-md">
       <label for="curso">Curso</label>
-      <input type="text" class="form-control" id="curso" name="curso"
-        placeholder="O curso será um select com todos os cursos">
+        <select class="custom-select" name="curso" id="curso" required>
+          <?php
+          option_curso();?>
+        </select>
     </div>
   </div>
   <div class="form-row col">
     <div class="form-group col-sm-6">
       <label for="semestre">Semestre</label>
-      <input type="text" class="form-control" id="semestre" name="semestre" placeholder="Select de 1 a 20">
+      <select class="custom-select" name="semestre" id="semestre" required>
+        <?php 
+        for ($i=01; $i <= 20; $i++) { 
+          echo "<option value='".$i."' >" . $i . "</option>";
+        } ?>
+      </select>
     </div>
     <div class="form-group col-sm-6">
       <label for="qtdDisciplinas">Quantidade de Disciplinas:</label>
-      <input type="number" class="form-control" id="qtdDisciplinas" name="qtdDisciplinas" placeholder="Select de 1 a 20">
+      <select class="custom-select" name="qtdDisciplinas" id="qtdDisciplinas" required>
+        <?php 
+        for ($i=01; $i <= 20; $i++) { 
+          echo "<option value='".$i."' >" . $i . "</option>";
+        } ?>
+      </select>    
     </div>
   </div>
   <div class="form-row col mt-5">

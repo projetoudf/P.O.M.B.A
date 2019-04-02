@@ -1,14 +1,14 @@
 <?php
 	//conexão com o banco de dados
 	$host = "localhost";
-	$user = "root";
-	$pass = "root";
-	$db   = "pomba";
+	$user = "u684394229_root";
+	$pass = "udf2019";
+	$db   = "u684394229_udf";
 
 	$conn = new mysqli($host,$user,$pass,$db) or die($conn->error);
 
 	//inclusão de páginas
-	switch (@$_REQUEST["page"]) {
+	switch ($_REQUEST["page"]) {
 		//cadastro		
 		case 'cadastro':
 			include("cadastro.php");

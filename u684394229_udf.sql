@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 04-Abr-2019 às 04:02
--- Versão do servidor: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: 10-Abr-2019 às 16:51
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `avaliacao` (
-  `Id_Avaliacao` varchar(200) NOT NULL,
-  `NotaTirada` varchar(200) DEFAULT NULL,
-  `NotaProva` varchar(200) DEFAULT NULL,
-  `Id_Nota` varchar(200) DEFAULT NULL
+  `idAvaliacao` int(11) NOT NULL,
+  `notaTirada` double DEFAULT NULL,
+  `notaProva` double DEFAULT NULL,
+  `idNota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -42,11 +42,10 @@ CREATE TABLE `avaliacao` (
 --
 
 CREATE TABLE `contato` (
-  `Telefone` varchar(200) DEFAULT NULL,
-  `Mensagem` varchar(200) DEFAULT NULL,
-  `Nome` varchar(200) DEFAULT NULL,
-  `Email` varchar(200) DEFAULT NULL,
-  `Id_Cont` varchar(200) NOT NULL
+  `idCont` int(11) NOT NULL,
+  `mensagem` varchar(2000) DEFAULT NULL,
+  `nome` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -56,8 +55,8 @@ CREATE TABLE `contato` (
 --
 
 CREATE TABLE `curso` (
-  `NomeCurso` varchar(200) NOT NULL,
-  `Id_Aluno` varchar(200) DEFAULT NULL
+  `idCurso` int(11) NOT NULL,
+  `nome` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -67,13 +66,14 @@ CREATE TABLE `curso` (
 --
 
 CREATE TABLE `disciplina` (
-  `DiaSemana` varchar(200) DEFAULT NULL,
-  `NomeDisc` varchar(200) DEFAULT NULL,
-  `Horario` varchar(200) DEFAULT NULL,
-  `Turno` varchar(200) DEFAULT NULL,
-  `Id_DiscCursada` varchar(200) NOT NULL,
-  `nomeProfessor` varchar(200) DEFAULT NULL,
-  `emailProfessor` varchar(200) DEFAULT NULL
+  `idDiscCursada` int(11) NOT NULL,
+  `diaSemana` varchar(20) DEFAULT NULL,
+  `nomeDisc` varchar(100) DEFAULT NULL,
+  `horario` int(11) DEFAULT NULL,
+  `turno` varchar(20) DEFAULT NULL,
+  `nomeProfessor` varchar(20) DEFAULT NULL,
+  `emailProfessor` varchar(100) DEFAULT NULL,
+  `idCurso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -83,10 +83,11 @@ CREATE TABLE `disciplina` (
 --
 
 CREATE TABLE `faltas` (
-  `Qtd_Falta` varchar(200) DEFAULT NULL,
-  `Id_Falta` varchar(200) NOT NULL,
-  `Dia_Falta` varchar(200) DEFAULT NULL,
-  `Id_DiscCursada` varchar(200) DEFAULT NULL
+  `idFalta` int(11) NOT NULL,
+  `qtdFalta` int(11) DEFAULT NULL,
+  `diaFalta` date DEFAULT NULL,
+  `semestre` int(11) DEFAULT NULL,
+  `idDiscCursada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -96,9 +97,9 @@ CREATE TABLE `faltas` (
 --
 
 CREATE TABLE `frasesmotivacionais` (
-  `Frase` varchar(200) DEFAULT NULL,
-  `Id_Frases` varchar(200) NOT NULL,
-  `Id_Aluno` varchar(200) DEFAULT NULL
+  `idFrases` int(11) NOT NULL,
+  `frase` varchar(2000) DEFAULT NULL,
+  `idAluno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -108,12 +109,11 @@ CREATE TABLE `frasesmotivacionais` (
 --
 
 CREATE TABLE `lembrentes` (
-  `Id_lembrete` varchar(200) NOT NULL,
-  `Hora` varchar(200) DEFAULT NULL,
-  `Data` varchar(200) DEFAULT NULL,
-  `Titulo` varchar(200) DEFAULT NULL,
-  `Conteudo` varchar(200) DEFAULT NULL,
-  `Id_Aluno` varchar(200) DEFAULT NULL
+  `idlembrete` int(11) NOT NULL,
+  `data` datetime DEFAULT NULL,
+  `titulo` varchar(100) DEFAULT NULL,
+  `conteudo` varchar(2000) DEFAULT NULL,
+  `idAluno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -123,7 +123,7 @@ CREATE TABLE `lembrentes` (
 --
 
 CREATE TABLE `log` (
-  `Id_Aluno` varchar(200) DEFAULT NULL
+  `idAluno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -133,8 +133,9 @@ CREATE TABLE `log` (
 --
 
 CREATE TABLE `nota` (
-  `Id_Nota` varchar(200) NOT NULL,
-  `Id_DiscCursada` varchar(200) DEFAULT NULL
+  `idNota` int(11) NOT NULL,
+  `semestre` int(11) DEFAULT NULL,
+  `idDiscCursada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -144,10 +145,10 @@ CREATE TABLE `nota` (
 --
 
 CREATE TABLE `pri` (
-  `Id_PRI` varchar(200) NOT NULL,
-  `Nota_Max` varchar(200) DEFAULT NULL,
-  `Nota_Tirada` varchar(200) DEFAULT NULL,
-  `Id_Nota` varchar(200) DEFAULT NULL
+  `idPRI` int(11) NOT NULL,
+  `notaMax` double DEFAULT NULL,
+  `notaTirada` double DEFAULT NULL,
+  `idNota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -157,18 +158,7 @@ CREATE TABLE `pri` (
 --
 
 CREATE TABLE `recupsenha` (
-  `Id_Aluno` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `relação_3`
---
-
-CREATE TABLE `relação_3` (
-  `Id_DiscCursada` varchar(200) DEFAULT NULL,
-  `Id_Semestre` varchar(200) DEFAULT NULL
+  `Id_Aluno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -178,22 +168,32 @@ CREATE TABLE `relação_3` (
 --
 
 CREATE TABLE `resumo` (
-  `Id_Resumo` varchar(200) NOT NULL,
-  `TituloResumo` varchar(200) DEFAULT NULL,
-  `ConteudoResumo` varchar(200) DEFAULT NULL,
-  `Id_DiscCursada` varchar(200) DEFAULT NULL
+  `idResumo` int(11) NOT NULL,
+  `tituloResumo` varchar(100) DEFAULT NULL,
+  `conteudoResumo` varchar(2000) DEFAULT NULL,
+  `semestre` int(11) DEFAULT NULL,
+  `idDiscCursada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `semestre`
+-- Estrutura da tabela `telefone`
 --
 
-CREATE TABLE `semestre` (
-  `Id_Semestre` varchar(200) NOT NULL,
-  `QtdMaterias` varchar(200) DEFAULT NULL,
-  `NomeCurso` varchar(200) DEFAULT NULL
+CREATE TABLE `telefone` (
+  `telefone` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuariocurso`
+--
+
+CREATE TABLE `usuariocurso` (
+  `idCurso` int(11) DEFAULT NULL,
+  `idAluno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -203,12 +203,12 @@ CREATE TABLE `semestre` (
 --
 
 CREATE TABLE `usuarios` (
-  `Email` varchar(200) DEFAULT NULL,
-  `Senha` varchar(200) DEFAULT NULL,
-  `DataNascimento` varchar(200) DEFAULT NULL,
-  `Id_Aluno` varchar(200) NOT NULL,
-  `Sexo` varchar(200) DEFAULT NULL,
-  `Nome` varchar(200) DEFAULT NULL
+  `idAluno` int(11) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `senha` varchar(100) DEFAULT NULL,
+  `dataNascimento` date DEFAULT NULL,
+  `sexo` varchar(20) DEFAULT NULL,
+  `nome` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -219,68 +219,68 @@ CREATE TABLE `usuarios` (
 -- Indexes for table `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  ADD PRIMARY KEY (`Id_Avaliacao`),
-  ADD KEY `Id_Nota` (`Id_Nota`);
+  ADD PRIMARY KEY (`idAvaliacao`),
+  ADD KEY `idNota` (`idNota`);
 
 --
 -- Indexes for table `contato`
 --
 ALTER TABLE `contato`
-  ADD PRIMARY KEY (`Id_Cont`);
+  ADD PRIMARY KEY (`idCont`);
 
 --
 -- Indexes for table `curso`
 --
 ALTER TABLE `curso`
-  ADD PRIMARY KEY (`NomeCurso`),
-  ADD KEY `Id_Aluno` (`Id_Aluno`);
+  ADD PRIMARY KEY (`idCurso`);
 
 --
 -- Indexes for table `disciplina`
 --
 ALTER TABLE `disciplina`
-  ADD PRIMARY KEY (`Id_DiscCursada`);
+  ADD PRIMARY KEY (`idDiscCursada`),
+  ADD KEY `idCurso` (`idCurso`);
 
 --
 -- Indexes for table `faltas`
 --
 ALTER TABLE `faltas`
-  ADD PRIMARY KEY (`Id_Falta`),
-  ADD KEY `Id_DiscCursada` (`Id_DiscCursada`);
+  ADD PRIMARY KEY (`idFalta`),
+  ADD KEY `idDiscCursada` (`idDiscCursada`);
 
 --
 -- Indexes for table `frasesmotivacionais`
 --
 ALTER TABLE `frasesmotivacionais`
-  ADD PRIMARY KEY (`Id_Frases`),
-  ADD KEY `Id_Aluno` (`Id_Aluno`);
+  ADD PRIMARY KEY (`idFrases`),
+  ADD KEY `idAluno` (`idAluno`);
 
 --
 -- Indexes for table `lembrentes`
 --
 ALTER TABLE `lembrentes`
-  ADD PRIMARY KEY (`Id_lembrete`),
-  ADD KEY `Id_Aluno` (`Id_Aluno`);
+  ADD PRIMARY KEY (`idlembrete`),
+  ADD KEY `idAluno` (`idAluno`);
 
 --
 -- Indexes for table `log`
 --
 ALTER TABLE `log`
-  ADD KEY `Id_Aluno` (`Id_Aluno`);
+  ADD KEY `idAluno` (`idAluno`);
 
 --
 -- Indexes for table `nota`
 --
 ALTER TABLE `nota`
-  ADD PRIMARY KEY (`Id_Nota`),
-  ADD KEY `Id_DiscCursada` (`Id_DiscCursada`);
+  ADD PRIMARY KEY (`idNota`),
+  ADD KEY `idDiscCursada` (`idDiscCursada`);
 
 --
 -- Indexes for table `pri`
 --
 ALTER TABLE `pri`
-  ADD PRIMARY KEY (`Id_PRI`),
-  ADD KEY `Id_Nota` (`Id_Nota`);
+  ADD PRIMARY KEY (`idPRI`),
+  ADD KEY `idNota` (`idNota`);
 
 --
 -- Indexes for table `recupsenha`
@@ -289,31 +289,24 @@ ALTER TABLE `recupsenha`
   ADD KEY `Id_Aluno` (`Id_Aluno`);
 
 --
--- Indexes for table `relação_3`
---
-ALTER TABLE `relação_3`
-  ADD KEY `Id_DiscCursada` (`Id_DiscCursada`),
-  ADD KEY `Id_Semestre` (`Id_Semestre`);
-
---
 -- Indexes for table `resumo`
 --
 ALTER TABLE `resumo`
-  ADD PRIMARY KEY (`Id_Resumo`),
-  ADD KEY `Id_DiscCursada` (`Id_DiscCursada`);
+  ADD PRIMARY KEY (`idResumo`),
+  ADD KEY `idDiscCursada` (`idDiscCursada`);
 
 --
--- Indexes for table `semestre`
+-- Indexes for table `usuariocurso`
 --
-ALTER TABLE `semestre`
-  ADD PRIMARY KEY (`Id_Semestre`),
-  ADD KEY `NomeCurso` (`NomeCurso`);
+ALTER TABLE `usuariocurso`
+  ADD KEY `idCurso` (`idCurso`),
+  ADD KEY `idAluno` (`idAluno`);
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`Id_Aluno`);
+  ADD PRIMARY KEY (`idAluno`);
 
 --
 -- Constraints for dumped tables
@@ -323,74 +316,68 @@ ALTER TABLE `usuarios`
 -- Limitadores para a tabela `avaliacao`
 --
 ALTER TABLE `avaliacao`
-  ADD CONSTRAINT `avaliacao_ibfk_1` FOREIGN KEY (`Id_Nota`) REFERENCES `nota` (`Id_Nota`);
+  ADD CONSTRAINT `avaliacao_ibfk_1` FOREIGN KEY (`idNota`) REFERENCES `nota` (`idNota`);
 
 --
--- Limitadores para a tabela `curso`
+-- Limitadores para a tabela `disciplina`
 --
-ALTER TABLE `curso`
-  ADD CONSTRAINT `curso_ibfk_1` FOREIGN KEY (`Id_Aluno`) REFERENCES `usuarios` (`Id_Aluno`);
+ALTER TABLE `disciplina`
+  ADD CONSTRAINT `disciplina_ibfk_1` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`idCurso`);
 
 --
 -- Limitadores para a tabela `faltas`
 --
 ALTER TABLE `faltas`
-  ADD CONSTRAINT `faltas_ibfk_1` FOREIGN KEY (`Id_DiscCursada`) REFERENCES `disciplina` (`Id_DiscCursada`);
+  ADD CONSTRAINT `faltas_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplina` (`idDiscCursada`);
 
 --
 -- Limitadores para a tabela `frasesmotivacionais`
 --
 ALTER TABLE `frasesmotivacionais`
-  ADD CONSTRAINT `frasesmotivacionais_ibfk_1` FOREIGN KEY (`Id_Aluno`) REFERENCES `usuarios` (`Id_Aluno`);
+  ADD CONSTRAINT `frasesmotivacionais_ibfk_1` FOREIGN KEY (`idAluno`) REFERENCES `usuarios` (`idAluno`);
 
 --
 -- Limitadores para a tabela `lembrentes`
 --
 ALTER TABLE `lembrentes`
-  ADD CONSTRAINT `lembrentes_ibfk_1` FOREIGN KEY (`Id_Aluno`) REFERENCES `usuarios` (`Id_Aluno`);
+  ADD CONSTRAINT `lembrentes_ibfk_1` FOREIGN KEY (`idAluno`) REFERENCES `usuarios` (`idAluno`);
 
 --
 -- Limitadores para a tabela `log`
 --
 ALTER TABLE `log`
-  ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`Id_Aluno`) REFERENCES `usuarios` (`Id_Aluno`);
+  ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`idAluno`) REFERENCES `usuarios` (`idAluno`);
 
 --
 -- Limitadores para a tabela `nota`
 --
 ALTER TABLE `nota`
-  ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`Id_DiscCursada`) REFERENCES `disciplina` (`Id_DiscCursada`);
+  ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplina` (`idDiscCursada`);
 
 --
 -- Limitadores para a tabela `pri`
 --
 ALTER TABLE `pri`
-  ADD CONSTRAINT `pri_ibfk_1` FOREIGN KEY (`Id_Nota`) REFERENCES `nota` (`Id_Nota`);
+  ADD CONSTRAINT `pri_ibfk_1` FOREIGN KEY (`idNota`) REFERENCES `nota` (`idNota`);
 
 --
 -- Limitadores para a tabela `recupsenha`
 --
 ALTER TABLE `recupsenha`
-  ADD CONSTRAINT `recupsenha_ibfk_1` FOREIGN KEY (`Id_Aluno`) REFERENCES `usuarios` (`Id_Aluno`);
-
---
--- Limitadores para a tabela `relação_3`
---
-ALTER TABLE `relação_3`
-  ADD CONSTRAINT `relação_3_ibfk_1` FOREIGN KEY (`Id_DiscCursada`) REFERENCES `disciplina` (`Id_DiscCursada`),
-  ADD CONSTRAINT `relação_3_ibfk_2` FOREIGN KEY (`Id_Semestre`) REFERENCES `semestre` (`Id_Semestre`);
+  ADD CONSTRAINT `recupsenha_ibfk_1` FOREIGN KEY (`Id_Aluno`) REFERENCES `usuarios` (`idAluno`);
 
 --
 -- Limitadores para a tabela `resumo`
 --
 ALTER TABLE `resumo`
-  ADD CONSTRAINT `resumo_ibfk_1` FOREIGN KEY (`Id_DiscCursada`) REFERENCES `disciplina` (`Id_DiscCursada`);
+  ADD CONSTRAINT `resumo_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplina` (`idDiscCursada`);
 
 --
--- Limitadores para a tabela `semestre`
+-- Limitadores para a tabela `usuariocurso`
 --
-ALTER TABLE `semestre`
-  ADD CONSTRAINT `semestre_ibfk_1` FOREIGN KEY (`NomeCurso`) REFERENCES `curso` (`NomeCurso`);
+ALTER TABLE `usuariocurso`
+  ADD CONSTRAINT `usuariocurso_ibfk_1` FOREIGN KEY (`idCurso`) REFERENCES `curso` (`idCurso`),
+  ADD CONSTRAINT `usuariocurso_ibfk_2` FOREIGN KEY (`idAluno`) REFERENCES `usuarios` (`idAluno`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

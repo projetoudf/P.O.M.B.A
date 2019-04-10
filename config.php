@@ -12,8 +12,8 @@
 		case 'login':
 			include("login.php");
 			break;
-		case 'lis-advogado':
-			include("advogado/listar-advogado.php");
+		case 'contato':
+			include("contato/contato.php");
 			break;
 		case 'sal-advogado':
 			include("advogado/salvar-advogado.php");

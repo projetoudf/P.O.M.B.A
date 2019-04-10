@@ -1,21 +1,23 @@
 <h1 class="text-center">Entre em contato:</h1><br>
 <div class="container">
-    <div class="form-group">
-        <label>Nome</label>
-        <input type="text" name="nome" class="form-control" required>
-    </div>
-    <div class="row">
-        <div class="form-group col-4">
-            <label>E-mail</label>
+<div class="row">
+        <div class="form-group col-6">
+            <label>Nome</label>
+            <input type="text" name="nome" class="form-control" required>
+        </div>
+        <div class="form-group col-6">
+            <label>Email</label>
             <input type="email" name="email" class="form-control" required>
         </div>
-        <div class="form-group col-4">
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
             <label>Telefone</label>
-            <input type="text" name="fone" class="form-control">
+            <input type="text" name="telefone" class="form-control" >
         </div>
-        <div class="form-group col-4">
+        <div class="form-group col-6">
             <label>Celular</label>
-            <input type="text" name="fone" class="form-control">
+            <input type="text" name="celular" class="form-control">
         </div>
     </div>
     <div class="form-group">

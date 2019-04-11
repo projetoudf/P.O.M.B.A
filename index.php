@@ -82,7 +82,7 @@
                             <a href="#">Faltas</a>
                         </li>
                         <li>
-                            <a href="#">Lembretes</a>
+                            <a href="index.php?page=lembretes">Lembretes</a>
                         </li>
                     </ul>
                 </li>

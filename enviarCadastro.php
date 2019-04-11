@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "conn.php";
 if (isset($_REQUEST['nome'])){
 	$nome = mysqli_real_escape_string($conn,$_REQUEST['nome']);

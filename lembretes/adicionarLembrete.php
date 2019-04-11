@@ -1,14 +1,13 @@
-<form action="contato/salvarLembrete.php">
+<form action="lembretes/salvarLembrete.php">
     <h1 class="text-center">Adicionar um Lembrete:</h1><br>
     <div class="container">
         <div class="form-group">
             <label>Título</label>
-            <input type="text" name="nome" class="form-control" required>
+            <input type="text" id="conteudo" name="titulo" class="form-control" required>
         </div>
-
         <div class="form-group">
             <label>Conteúdo</label>
-            <textarea class="form-control" id="mensagem" name="mensagem" rows="5" cols="20" maxlength="1000" required></textarea>
+            <textarea class="form-control" id="conteudo" name="conteudo" rows="5" cols="20" maxlength="180" required></textarea>
         </div>
 
         <div class="form-row col mt-5">

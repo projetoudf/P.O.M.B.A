@@ -21,12 +21,9 @@
     <link rel="stylesheet" href="style4.css">
 
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
-    </script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
-    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
 
 </head>
 
@@ -102,9 +99,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="index.php?page=contato">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
+                        Contato
                     </a>
                 </li>
             </ul>
@@ -138,12 +135,15 @@
                             <li class="nav-item">
                                 <a role="button" class="btn btn-info my-2 mx-2" data-toggle="modal" data-target="#login">Login</a>
                             </li>
-                            <?php } else{ ?>
+                        <?php } else{ ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php?page=mensagens">Mensagens <i class="far fa-comment-dots"></i></a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link">Olá <?php echo $_SESSION['nome']; ?>!</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a>
+                                <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Sair</a>
                             </li>
                             <?php } ?>
                         </ul>

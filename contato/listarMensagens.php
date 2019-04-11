@@ -4,8 +4,8 @@
     $qtd = $res->num_rows;
     ?>
 
-<div class="container-fluid">
-    <table class="table table-striped table-hover table-responsive" style="background-color: whitesmoke;">
+<div class="container-fluid table-responsive">
+    <table class="table table-striped table-hover" style="background-color: whitesmoke;">
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -28,7 +28,7 @@
             <td><?php echo $row['email']; ?></td>
             <td><?php print implode("/",$result); ?></td>
             <td><?php echo $row['mensagem']; ?></td>
-            <td><?php echo '<button onclick="if(confirm(\'tem certeza que deseja excluir a Mensagem '.$row['id_mensagem'].'?\')){location.href=\'deletar.php?id_mensagem='.$row['id_mensagem'].'\';}else{false;}"  class=\'btn btn-danger\'><i class="fas fa-trash-alt"></i></button>'; ?></td>
+            <td><?php echo '<button onclick="if(confirm(\'tem certeza que deseja excluir a Mensagem '.$row['idCont'].'?\')){location.href=\'contato/deletarMensagem.php?idCont='.$row['idCont'].'\';}else{false;}"  class=\'btn btn-danger\'><i class="fas fa-trash-alt"></i></button>'; ?></td>
 
         </tr>
         <?php } ?>

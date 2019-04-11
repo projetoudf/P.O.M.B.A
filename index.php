@@ -1,7 +1,7 @@
 <?php
     session_start();
     ini_set('default_charset', 'UTF-8');
-
+    require "conn.php";
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +33,8 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>P.O.M.B.A</h3>
-                <strong><img src="Pombo.jpg" alt="PB" height="35px" style="border-radius: 50%;"></strong>
+                <a href="index.php"><h3>P.O.M.B.A</h3></a>
+                <a href="index.php"><strong><img src="Pombo.jpg" alt="PB" height="35px" style="border-radius: 50%;"></strong></a>
             </div>
 
             <ul class="list-unstyled components">
@@ -105,7 +105,13 @@
                     </a>
                 </li>
             </ul>
-
+            <span style="color: black;  font-size: 12px; text-indent: 15px; margin-left: 5px;">
+            <?php
+            $sql = mysqli_query($conn,"SELECT frase FROM frasesmotivacionais ORDER BY RAND() LIMIT 1");
+            $res = $sql->fetch_array();
+            print "\"". implode(".",$res). "\"";
+            ?>
+            </span>
 
         </nav>
 

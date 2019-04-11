@@ -1,7 +1,7 @@
 <?php
 	ini_set('default_charset', 'UTF-8');
 
-	require "conn.php";
+	require_once "conn.php";
 
 	//inclusão de páginas
 	switch (@$_REQUEST["page"]) {

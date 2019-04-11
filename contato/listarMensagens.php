@@ -19,7 +19,7 @@
         <tbody>
         <?php while($row = $res->fetch_assoc()){ 
             
-            $sqlTel = mysqli_query($conn,"select telefone from telefone where idCont = ".$row['idCont']);
+            $sqlTel = v"select telefone from telefone where idCont = ".$row['idCont']);
             $result = $sqlTel->fetch_array()
             ?>
         <tr>

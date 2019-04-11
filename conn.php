@@ -25,3 +25,4 @@
         echo "<option value='".$row['curso']."' >" . $row['curso'] . "</option>";
     }          
 }
+

@@ -12,7 +12,7 @@ echo            "<div class=\"card-body\">";
 echo                "<h5 class=\"card-title\">".$row['titulo']."</h5>";
 echo                "<h6 class=\"card-subtitle mb-2 text-muted\">".$row['data']."</h6>";
 echo                "<p class=\"card-text\">".$row['conteudo']."</p>";
-echo                "<a href=\"#\" class=\"card-link float-right\"><i class=\"fas fa-trash\"></i></a>";
+echo                "<a href=\"#\" class=\"card-link ml-auto\"><i class=\"fas fa-trash\"></i></a>";
 echo            "</div>";
 echo        "</div>";
 }

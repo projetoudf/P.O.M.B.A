@@ -3,11 +3,11 @@
     <div class="container">
         <div class="form-group">
             <label>Título</label>
-            <input type="text" id="conteudo" name="titulo" class="form-control" required>
+            <input type="text" id="conteudo" name="titulo" class="form-control limiteDeCaracteres" maxlength="50" required>
         </div>
         <div class="form-group">
             <label>Conteúdo</label>
-            <textarea class="form-control" id="conteudo" name="conteudo" rows="5" cols="20" maxlength="180" required></textarea>
+            <textarea class="form-control limiteDeCaracteres" id="conteudo" name="conteudo" rows="5" cols="20" maxlength="200" required></textarea>
         </div>
 
         <div class="form-row col mt-5">
@@ -16,3 +16,5 @@
         </div>
     </div>
 </form>
+
+

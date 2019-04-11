@@ -31,18 +31,15 @@
 		case 'sal-cliente':
 			include("cliente/salvar-cliente.php");
 			break;
-		//processo		
-		case 'cad-processo':
-			include("processo/cadastrar-processo.php");
+		//lembrete		
+		case 'lembretes':
+			include("lembretes/listarLembretes.php");
 			break;
-		case 'edi-processo':
-			include("processo/editar-processo.php");
+		case 'adicionarLembrete':
+			include("lembretes/adicionarLembrete.php");
 			break;
-		case 'lis-processo':
-			include("processo/listar-processo.php");
-			break;
-		case 'sal-processo':
-			include("processo/salvar-processo.php");
+		case 'editarLembrete':
+			include("lembretes/editarLembrete.php");
 			break;
 		
 		default:

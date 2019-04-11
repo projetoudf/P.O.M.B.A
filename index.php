@@ -82,7 +82,7 @@
                             <a href="#">Faltas</a>
                         </li>
                         <li>
-                            <a href="#">Agebnda</a>
+                            <a href="#">Lembretes</a>
                         </li>
                     </ul>
                 </li>
@@ -141,7 +141,7 @@
                             <li class="nav-item">
                                 <a role="button" class="btn btn-info my-2 mx-2" data-toggle="modal" data-target="#login">Login</a>
                             </li>
-                        <?php } else{ ?>
+                        <?php } else { ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php?page=mensagens">Mensagens <i class="far fa-comment-dots"></i></a>
                             </li>

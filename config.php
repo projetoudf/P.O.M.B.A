@@ -15,8 +15,8 @@
 		case 'contato':
 			include("contato/contato.php");
 			break;
-		case 'sal-advogado':
-			include("advogado/salvar-advogado.php");
+		case 'mensagens':
+			include("contato/listarMensagens.php");
 			break;
 		//curso		
 		case 'adicionarcurso':

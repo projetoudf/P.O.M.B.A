@@ -1,3 +1,4 @@
+<form action="contato/enviarMensagem.php">
 <h1 class="text-center">Entre em contato:</h1><br>
 <div class="container">
 <div class="row">
@@ -21,7 +22,7 @@
         </div>
     </div>
     <div class="form-group">
-        <textarea class="form-control" id="descricao" name="descricao" rows="5" cols="20" maxlength="500"
+        <textarea class="form-control" id="mensagem" name="mensagem" rows="5" cols="20" maxlength="1000"
             placeholder="Envie uma mensagem!"></textarea>
     </div>
 
@@ -29,3 +30,4 @@
         <button type="submit" class="btn btn-primary mr-auto">Enviar</button>
     </div>
 </div>
+</form>

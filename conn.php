@@ -22,7 +22,7 @@
 	$result = mysqli_query($conn, $curso);	
 		echo "<option selected value=''>Selecione o Curso:</option>";
 		while($row = $result->fetch_assoc()) {
-        echo "<option value='".$row['curso']."' >" . $row['curso'] . "</option>";
+        echo "<option value='".$row['nomeCurso']."' >" . $row['nomeCurso'] . "</option>";
     }          
 }
 

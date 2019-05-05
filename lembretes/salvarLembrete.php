@@ -11,7 +11,7 @@ require "../conn.php";
 
 		// success
 			if($sql){
-				echo '<script type="application/javascript">alert("Mensagem enviada com sucesso. Aguarde nosso retorno!"); window.location.href ="/index.php?page=lembretes";</script>';
+				echo '<script type="application/javascript">alert("Lembrete salvo com sucesso!"); window.location.href ="/index.php?page=lembretes";</script>';
 
 			}else{
 				echo '<script type="application/javascript">alert("Houve um problema. Tente novamente...".mysql_error()); window.history.go(-1);</script>';

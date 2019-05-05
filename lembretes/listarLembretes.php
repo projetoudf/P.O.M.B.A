@@ -1,3 +1,8 @@
+<div>
+    <span><a role="button" class="btn btn-success my-2" href="index.php?page=adicionarLembrete">Adicionar Lembrete</a></span>
+
+</div>
+
 <?php
 $id = $_SESSION['id']; 
 
@@ -11,8 +16,8 @@ echo        "<div class=\"card m-1\" style=\"width: 18rem;\">";
 echo            "<div class=\"card-body\">";
 echo                "<h5 class=\"card-title\">".$row['titulo']."</h5>";
 echo                "<h6 class=\"card-subtitle mb-2 text-muted\">".$row['data']."</h6>";
-echo                "<p class=\"card-text\">".$row['conteudo']."</p>";
-echo                "<a href=\"#\" class=\"card-link ml-auto\"><i class=\"fas fa-trash\"></i></a>";
+echo                "<pre><p class=\"card-text\">".$row['conteudo']."</p></pre>";
+echo '<button onclick="if(confirm(\'tem certeza que deseja excluir o Lembrete '.$row['idLembrete'].'?\')){location.href=\'lembretes/excluirLembrete.php?idLembrete='.$row['idLembrete'].'\';}else{false;}"  class=\'btn btn-danger btn-sm\'><i class="fas fa-trash-alt"></i></button>';
 echo            "</div>";
 echo        "</div>";
 }

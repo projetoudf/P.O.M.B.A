@@ -107,7 +107,7 @@
             </ul>
             <span style="color: black;  font-size: 12px; text-indent: 15px; margin-left: 5px;">
             <?php
-            $sql = mysqli_query($conn,"SELECT frase FROM frasesmotivacionais ORDER BY RAND() LIMIT 1");
+            $sql = mysqli_query($conn,"SELECT frases FROM frasesmotivacionais ORDER BY RAND() LIMIT 1");
 	    $res = $sql->fetch_assoc();
             print "\"". $res['frases']. "\"";
             ?>

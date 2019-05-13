@@ -23,6 +23,15 @@
 		echo "<option selected value=''>Selecione o Curso:</option>";
 		while($row = $result->fetch_assoc()) {
         echo "<option value='".$row['idCurso']."' >" . $row['nomeCurso'] . "</option>";
-    }          
+    }
+}
+    function option_disciplina(){
+        global $conn;
+        $curso="select * from disciplina";
+        $result = mysqli_query($conn, $curso);	
+            echo "<option selected value=''>Selecione a Disciplina:</option>";
+            while($row = $result->fetch_assoc()) {
+            echo "<option value='".$row['idDisciplina']."' >" . $row['nome'] . "</option>";
+        }          
 }
 

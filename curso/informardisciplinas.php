@@ -12,7 +12,10 @@
         <div class="form-row col">
           <div class="form-group col-sm-6">
             <label for="disciplina<?php echo $i; ?>">Disciplina <?php echo $i; ?></label>
-            <input type="text" class="form-control" id="disciplina<?php echo $i; ?>" name="disciplina<?php echo $i; ?>" placeholder="Select com as disciplinas">
+            <select class="custom-select" name="disciplina<?php echo $i; ?>" id="disciplina<?php echo $i; ?>" required>
+              <?php
+              option_curso();?>
+            </select>
           </div>
           <div class="form-group col-sm-6">
             <label for="horario<?php echo $i; ?>">Horário</label>

@@ -9,7 +9,7 @@ if (isset($_REQUEST['nome'])){
 	$senha = mysqli_real_escape_string($conn,make_hash($_REQUEST['senha']));
 	
 	//checar se o email ja esta cadastrado
-	$sql="select * from usuarios where (email='$email');";
+	$sql="select * from usuario where (email='$email');";
 	$res=mysqli_query($conn,$sql);
 	if (mysqli_num_rows($res) > 0) {
 		// output data of each row
@@ -20,7 +20,7 @@ if (isset($_REQUEST['nome'])){
 		}
 	}else{
 	
-		$sql = "INSERT INTO usuarios (nome, dataNascimento, sexo, email, senha) VALUES ('$nome', '$dataNascimento', '$sexo', '$email', '$senha')";
+		$sql = "INSERT INTO usuario (nome, dataNascimento, sexo, email, senha) VALUES ('$nome', '$dataNascimento', '$sexo', '$email', '$senha')";
 		mysqli_query($conn,$sql);
 		// success
 			if($sql){

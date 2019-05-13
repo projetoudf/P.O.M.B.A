@@ -5,7 +5,7 @@ include 'config.php';
 $email = mysqli_real_escape_string($conn,$_POST['email_login']);
 $senha = mysqli_real_escape_string($conn,make_hash($_POST['senha_login']));
  
-$query = "select * from usuarios where email = '$email' and senha = '$senha'";
+$query = "select * from usuario where email = '$email' and senha = '$senha'";
  
 $result = mysqli_query($conn, $query);
  

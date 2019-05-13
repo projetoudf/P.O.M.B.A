@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25-Abr-2019 às 14:12
--- Versão do servidor: 10.1.37-MariaDB
--- versão do PHP: 7.3.0
+-- Generation Time: 13-Maio-2019 às 19:15
+-- Versão do servidor: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `contato` (
   `idCont` int(11) NOT NULL,
-  `nome` varchar(150) DEFAULT NULL,
-  `mensagem` varchar(500) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL
+  `nome` varchar(150) NOT NULL,
+  `mensagem` varchar(500) NOT NULL,
+  `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -43,7 +43,7 @@ CREATE TABLE `contato` (
 
 CREATE TABLE `curso` (
   `idCurso` int(11) NOT NULL,
-  `nomeCurso` varchar(100) DEFAULT NULL
+  `nomeCurso` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -134,8 +134,8 @@ INSERT INTO `curso` (`idCurso`, `nomeCurso`) VALUES
 
 CREATE TABLE `disciplina` (
   `idDisciplina` int(11) NOT NULL,
-  `nome` varchar(100) DEFAULT NULL,
-  `idDiscCursada` int(11) DEFAULT NULL
+  `nome` varchar(100) NOT NULL,
+  `idDiscCursada` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -146,7 +146,7 @@ CREATE TABLE `disciplina` (
 
 CREATE TABLE `disciplinahistorico` (
   `idDiscCursada` int(11) NOT NULL,
-  `diaSemana` varchar(50) DEFAULT NULL,
+  `diaSemana` varchar(50) NOT NULL,
   `horario` int(11) DEFAULT NULL,
   `turno` varchar(50) DEFAULT NULL,
   `emailProfessor` varchar(100) DEFAULT NULL,
@@ -174,7 +174,7 @@ CREATE TABLE `falta` (
 
 CREATE TABLE `frasesmotivacionais` (
   `idFrases` int(11) NOT NULL,
-  `frases` varchar(250) DEFAULT NULL
+  `frases` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -185,10 +185,10 @@ CREATE TABLE `frasesmotivacionais` (
 
 CREATE TABLE `lembretes` (
   `idlembrete` int(11) NOT NULL,
-  `data` datetime DEFAULT NULL,
-  `titulo` varchar(100) DEFAULT NULL,
-  `conteudo` varchar(250) DEFAULT NULL,
-  `idAluno` int(11) DEFAULT NULL
+  `data` datetime NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `conteudo` varchar(250) NOT NULL,
+  `idAluno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -224,9 +224,9 @@ CREATE TABLE `notas` (
 
 CREATE TABLE `recupsenha` (
   `id` int(11) NOT NULL,
-  `cod` varchar(100) DEFAULT NULL,
-  `valido` tinyint(1) DEFAULT NULL,
-  `idAluno` int(11) DEFAULT NULL
+  `cod` varchar(100) NOT NULL,
+  `valido` tinyint(1) NOT NULL,
+  `idAluno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -237,9 +237,9 @@ CREATE TABLE `recupsenha` (
 
 CREATE TABLE `resumos` (
   `idResumo` int(11) NOT NULL,
-  `tituloResumo` varchar(50) DEFAULT NULL,
-  `conteudoResumo` varchar(700) DEFAULT NULL,
-  `idDiscCursada` int(11) DEFAULT NULL
+  `tituloResumo` varchar(50) NOT NULL,
+  `conteudoResumo` varchar(700) NOT NULL,
+  `idDiscCursada` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -250,16 +250,16 @@ CREATE TABLE `resumos` (
 
 CREATE TABLE `semestre` (
   `idSemestre` int(11) NOT NULL,
-  `numeroSemestre` int(11) DEFAULT NULL
+  `numeroSemestre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `semestredisciplinah`
+-- Estrutura da tabela `semestredischistorico`
 --
 
-CREATE TABLE `semestredisciplinah` (
+CREATE TABLE `semestredischistorico` (
   `idSemestre` int(11) DEFAULT NULL,
   `idDiscCursada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -271,9 +271,9 @@ CREATE TABLE `semestredisciplinah` (
 --
 
 CREATE TABLE `telefone` (
-  `telefone` int(11) DEFAULT NULL,
+  `telefone` int(11) NOT NULL,
   `idTelefone` int(11) NOT NULL,
-  `idCont` int(11) DEFAULT NULL
+  `idCont` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -298,11 +298,11 @@ CREATE TABLE `tiponotas` (
 
 CREATE TABLE `usuario` (
   `idAluno` int(11) NOT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `senha` varchar(100) DEFAULT NULL,
-  `dataNascimento` date DEFAULT NULL,
-  `sexo` varchar(50) DEFAULT NULL,
-  `nome` varchar(150) DEFAULT NULL
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(100) NOT NULL,
+  `dataNascimento` date NOT NULL,
+  `sexo` varchar(50) NOT NULL,
+  `nome` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -402,9 +402,9 @@ ALTER TABLE `semestre`
   ADD PRIMARY KEY (`idSemestre`);
 
 --
--- Indexes for table `semestredisciplinah`
+-- Indexes for table `semestredischistorico`
 --
-ALTER TABLE `semestredisciplinah`
+ALTER TABLE `semestredischistorico`
   ADD KEY `idSemestre` (`idSemestre`),
   ADD KEY `idDiscCursada` (`idDiscCursada`);
 
@@ -484,11 +484,11 @@ ALTER TABLE `resumos`
   ADD CONSTRAINT `resumos_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
 
 --
--- Limitadores para a tabela `semestredisciplinah`
+-- Limitadores para a tabela `semestredischistorico`
 --
-ALTER TABLE `semestredisciplinah`
-  ADD CONSTRAINT `semestredisciplinah_ibfk_1` FOREIGN KEY (`idSemestre`) REFERENCES `semestre` (`idSemestre`),
-  ADD CONSTRAINT `semestredisciplinah_ibfk_2` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
+ALTER TABLE `semestredischistorico`
+  ADD CONSTRAINT `semestredischistorico_ibfk_1` FOREIGN KEY (`idSemestre`) REFERENCES `semestre` (`idSemestre`),
+  ADD CONSTRAINT `semestredischistorico_ibfk_2` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
 
 --
 -- Limitadores para a tabela `telefone`

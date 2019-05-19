@@ -5,7 +5,7 @@
 ?>
 <h2 class="text-center">Informe a(s) Disciplina(s)</h2>
 <h4 class="text-center">Preencha os formulários para cada disciplina:</h4>
-<form>
+<form action="curso/salvar.php">
   <?php
     for ($i = 1; $i <= $qtdDisciplinas; $i++){ ?>
       <div class="border border-blue rounded py-2 my-2">
@@ -14,7 +14,7 @@
             <label for="disciplina<?php echo $i; ?>">Disciplina <?php echo $i; ?></label>
             <select class="custom-select" name="disciplina<?php echo $i; ?>" id="disciplina<?php echo $i; ?>" required>
               <?php
-              option_curso();?>
+              option_disciplina();?>
             </select>
           </div>
           <div class="form-group col-sm-6">

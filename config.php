@@ -25,8 +25,8 @@
 		case 'informardisciplinas':
 			include("curso/informardisciplinas.php");
 			break;
-		case 'lis-cliente':
-			include("cliente/listar-cliente.php");
+		case 'listardisciplinas':
+			include("curso/listardisciplinas.php");
 			break;
 		case 'sal-cliente':
 			include("cliente/salvar-cliente.php");

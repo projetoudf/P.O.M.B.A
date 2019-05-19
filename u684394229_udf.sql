@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Maio-2019 às 19:15
--- Versão do servidor: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: 15-Maio-2019 às 16:49
+-- Versão do servidor: 10.1.39-MariaDB
+-- versão do PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -134,9 +134,16 @@ INSERT INTO `curso` (`idCurso`, `nomeCurso`) VALUES
 
 CREATE TABLE `disciplina` (
   `idDisciplina` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `idDiscCursada` int(11) NOT NULL
+  `nome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `disciplina`
+--
+
+INSERT INTO `disciplina` (`idDisciplina`, `nome`) VALUES
+(1, 'PORTUGUES'),
+(2, 'MATEMATICA');
 
 -- --------------------------------------------------------
 
@@ -150,7 +157,8 @@ CREATE TABLE `disciplinahistorico` (
   `horario` int(11) DEFAULT NULL,
   `turno` varchar(50) DEFAULT NULL,
   `emailProfessor` varchar(100) DEFAULT NULL,
-  `nomeProfessor` varchar(100) DEFAULT NULL
+  `nomeProfessor` varchar(100) DEFAULT NULL,
+  `idDisciplina` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -305,6 +313,13 @@ CREATE TABLE `usuario` (
   `nome` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idAluno`, `email`, `senha`, `dataNascimento`, `sexo`, `nome`) VALUES
+(1, '1@1', '0937afa17f4dc08f3c0e5dc908158370ce64df86', '1987-10-28', 'masculino', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -337,14 +352,14 @@ ALTER TABLE `curso`
 -- Indexes for table `disciplina`
 --
 ALTER TABLE `disciplina`
-  ADD PRIMARY KEY (`idDisciplina`),
-  ADD KEY `idDiscCursada` (`idDiscCursada`);
+  ADD PRIMARY KEY (`idDisciplina`);
 
 --
 -- Indexes for table `disciplinahistorico`
 --
 ALTER TABLE `disciplinahistorico`
-  ADD PRIMARY KEY (`idDiscCursada`);
+  ADD PRIMARY KEY (`idDiscCursada`),
+  ADD KEY `idDisciplina` (`idDisciplina`);
 
 --
 -- Indexes for table `falta`
@@ -437,14 +452,96 @@ ALTER TABLE `usuariocurso`
   ADD KEY `idCurso` (`idCurso`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `contato`
+--
+ALTER TABLE `contato`
+  MODIFY `idCont` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `curso`
+--
+ALTER TABLE `curso`
+  MODIFY `idCurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+
+--
+-- AUTO_INCREMENT for table `disciplinahistorico`
+--
+ALTER TABLE `disciplinahistorico`
+  MODIFY `idDiscCursada` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `falta`
+--
+ALTER TABLE `falta`
+  MODIFY `idFalta` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `frasesmotivacionais`
+--
+ALTER TABLE `frasesmotivacionais`
+  MODIFY `idFrases` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `lembretes`
+--
+ALTER TABLE `lembretes`
+  MODIFY `idlembrete` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `notas`
+--
+ALTER TABLE `notas`
+  MODIFY `idNota` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `recupsenha`
+--
+ALTER TABLE `recupsenha`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `resumos`
+--
+ALTER TABLE `resumos`
+  MODIFY `idResumo` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `semestre`
+--
+ALTER TABLE `semestre`
+  MODIFY `idSemestre` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `telefone`
+--
+ALTER TABLE `telefone`
+  MODIFY `idTelefone` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tiponotas`
+--
+ALTER TABLE `tiponotas`
+  MODIFY `idTipoNota` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `idAluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `disciplina`
+-- Limitadores para a tabela `disciplinahistorico`
 --
-ALTER TABLE `disciplina`
-  ADD CONSTRAINT `disciplina_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
+ALTER TABLE `disciplinahistorico`
+  ADD CONSTRAINT `disciplinahistorico_ibfk_1` FOREIGN KEY (`idDisciplina`) REFERENCES `disciplina` (`idDisciplina`);
 
 --
 -- Limitadores para a tabela `falta`

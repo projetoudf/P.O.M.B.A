@@ -45,7 +45,7 @@
                         Adicionar Curso
                     </a>
                 </li>
-            <?php } ?>
+            
 
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -53,18 +53,18 @@
                         Cursos
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Disciplina 1</a>
-                            <!-- inserir um submenu com o semestre, junto de um for para cada disciplina e semestre, ou um select para alternar o semestre -->
-                        </li>
-                        <li>
-                            <a href="#">Disciplina 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Disciplina 3</a>
-                        </li>
+                        <?php
+                            $sql="select curso.nomeCurso, usuariocurso.idSemestre from curso inner join usuariocurso on usuariocurso.idCurso = curso.idCurso where idAluno='".$_SESSION['id']."';";
+                            $res=mysqli_query($conn,$sql); 
+                            while($row = $res->fetch_assoc()){
+                                echo "<li>";
+                                echo "<a href=\"index.php?page=listardisciplinas&idSemestre=".$row['idSemestre']."&nomeCurso=".$row['nomeCurso']."\">".$row['nomeCurso']. " - " . $row['idSemestre']."</a>";
+                                echo "</li>";
+                            }
+                        ?>
                     </ul>
                 </li>
+                
                 <li>
                     <a href="#">
                         <i class="fas fa-briefcase"></i>
@@ -92,6 +92,7 @@
                         Meu Perfil
                     </a>
                 </li>
+                <?php } ?> <!-- END DO IF LOGADO -->
                 <li>
                     <a href="#">
                         <i class="fas fa-question"></i>

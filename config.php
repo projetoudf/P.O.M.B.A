@@ -54,6 +54,16 @@
 		case 'editarLembrete':
 			include("lembretes/editarLembrete.php");
 			break;
+		//FALTAS		
+		case 'faltas':
+			include("faltas/listarFalta.php");
+			break;
+		case 'adicionarfalta':
+			include("faltas/adicionarFalta.php");
+			break;
+		case 'excluirfalta':
+			include("faltas/excluirFalta.php");
+			break;
 		
 		default:
 			include("dashboard.php");

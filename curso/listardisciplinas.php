@@ -24,7 +24,8 @@
     U.IDALUNO AS 'ID_ALUNO',
     U.IDSEMESTRE AS 'CODIGO_SEMESTRE',
     C.NOMECURSO AS 'NOME_CURSO',
-    D.NOME AS 'NOME_DISCIPLINA'
+    D.NOME AS 'NOME_DISCIPLINA',
+    DH.IDDISCCURSADA AS 'ID_CURSADA'
     
     
     FROM USUARIOCURSO U, SEMESTREDISCHISTORICO S, disciplinahistorico DH, disciplina D, CURSO C
@@ -38,6 +39,6 @@
     $res=mysqli_query($conn,$sql); 
     while($row = $res->fetch_assoc()){
         echo "<div>";
-        echo "<span><a role=\"button\" class=\"btn btn-outline-primary my-2\" href=\"index.php?page=detalhedisciplina&nomeDisciplina=".$row['NOME_DISCIPLINA']."&idSemestre=".$semestre."&nomeCurso=".$nomeCurso."\">".$row['NOME_DISCIPLINA']."</a></span>";
+        echo "<span><a role=\"button\" class=\"btn btn-outline-primary my-2\" href=\"index.php?page=detalhedisciplina&nomeDisciplina=".$row['NOME_DISCIPLINA']."&idCursada=".$row['ID_CURSADA']."&idSemestre=".$semestre."&nomeCurso=".$nomeCurso."\">".$row['NOME_DISCIPLINA']."</a></span>";
         echo "</div>";
     }

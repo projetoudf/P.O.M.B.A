@@ -41,8 +41,8 @@
 		case 'salvarresumo':
 			include("resumo/salvarResumo.php");
 			break;
-		case 'detalhedisciplina':
-			include("curso/detalheDisciplina.php");
+		case 'editarresumo':
+			include("resumo/editarResumo.php");
 			break;
 		//lembrete		
 		case 'lembretes':

@@ -2,7 +2,7 @@
     $semestre = $_REQUEST['idSemestre'];
     $nomeCurso = $_REQUEST['nomeCurso'];
 
-    echo "<h3>".$nomeCurso." - ".$semestre."º Semestre";
+    echo "<h3>".$nomeCurso." - ".$semestre."º Semestre </h3>";
 ?>
 <!-- Incluir um método de adicionar mais disciplinas aos cursos já cadastrados #TODO
     
@@ -38,6 +38,6 @@
     $res=mysqli_query($conn,$sql); 
     while($row = $res->fetch_assoc()){
         echo "<div>";
-        echo "<span><a role=\"button\" class=\"btn btn-outline-primary my-2\" href=\"#\">".$row['NOME_DISCIPLINA']."</a></span>";
+        echo "<span><a role=\"button\" class=\"btn btn-outline-primary my-2\" href=\"index.php?page=detalhedisciplina&nomeDisciplina=".$row['NOME_DISCIPLINA']."&idSemestre=".$semestre."&nomeCurso=".$nomeCurso."\">".$row['NOME_DISCIPLINA']."</a></span>";
         echo "</div>";
     }

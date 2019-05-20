@@ -28,8 +28,21 @@
 		case 'listardisciplinas':
 			include("curso/listardisciplinas.php");
 			break;
-		case 'sal-cliente':
-			include("cliente/salvar-cliente.php");
+		case 'detalhedisciplina':
+			include("curso/detalheDisciplina.php");
+			break;
+		//resumo		
+		case 'adicionarresumo':
+			include("resumo/adicionarResumo.php");
+			break;
+		case 'excluirresumo':
+			include("resumo/excluirResumo.php");
+			break;
+		case 'salvarresumo':
+			include("resumo/salvarResumo.php");
+			break;
+		case 'detalhedisciplina':
+			include("curso/detalheDisciplina.php");
 			break;
 		//lembrete		
 		case 'lembretes':

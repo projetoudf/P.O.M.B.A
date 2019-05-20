@@ -7,12 +7,12 @@
         </div>
         <div class="form-group">
             <label>Conteúdo</label>
-            <textarea class="form-control limiteDeCaracteres" id="conteudo" name="conteudo" rows="5" cols="20" maxlength="200" required></textarea>
+            <textarea class="form-control limiteDeCaracteres" id="conteudo" name="conteudo" rows="15" cols="20" maxlength="3000" required></textarea>
         </div>
 
         <div class="form-row col mt-5">
             <a role="button" class="btn btn-danger btn-lg" href="index.php">Cancelar</a>
-            <button type="submit" class="btn btn-primary btn-lg ml-auto">Enviar</button>
+            <button type="submit" class="btn btn-primary btn-lg ml-auto">Salvar</button>
         </div>
     </div>
 </form>

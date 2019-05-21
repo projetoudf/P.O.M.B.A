@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Maio-2019 às 15:21
+-- Generation Time: 21-Maio-2019 às 16:01
 -- Versão do servidor: 10.1.39-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -166,7 +166,9 @@ CREATE TABLE `disciplinahistorico` (
 --
 
 INSERT INTO `disciplinahistorico` (`idDiscCursada`, `diaSemana`, `horario`, `turno`, `emailProfessor`, `nomeProfessor`, `idDisciplina`) VALUES
-(6, 'segunda', 'primeiro', 'matutino', 'a', 'a', 1);
+(6, 'segunda', 'primeiro', 'matutino', 'a', 'a', 1),
+(8, 'segunda', 'primeiro', 'matutino', 'a', 'a', 2),
+(9, 'segunda', 'primeiro', 'matutino', 'a', 'a', 1);
 
 -- --------------------------------------------------------
 
@@ -325,7 +327,9 @@ CREATE TABLE `semestredischistorico` (
 --
 
 INSERT INTO `semestredischistorico` (`id`, `idSemestre`, `idDiscCursada`) VALUES
-(3, 1, 6);
+(3, 1, 6),
+(5, 1, 8),
+(6, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -379,7 +383,8 @@ CREATE TABLE `usuariocurso` (
 --
 
 INSERT INTO `usuariocurso` (`id`, `idSemestre`, `idAluno`, `idCurso`) VALUES
-(33, 1, 1, 1);
+(33, 1, 1, 1),
+(35, 1, 1, 2);
 
 --
 -- Indexes for dumped tables
@@ -514,7 +519,7 @@ ALTER TABLE `curso`
 -- AUTO_INCREMENT for table `disciplinahistorico`
 --
 ALTER TABLE `disciplinahistorico`
-  MODIFY `idDiscCursada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idDiscCursada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `falta`
@@ -562,7 +567,7 @@ ALTER TABLE `semestre`
 -- AUTO_INCREMENT for table `semestredischistorico`
 --
 ALTER TABLE `semestredischistorico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `telefone`
@@ -580,7 +585,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `usuariocurso`
 --
 ALTER TABLE `usuariocurso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Constraints for dumped tables

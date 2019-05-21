@@ -29,7 +29,7 @@
     DH.IDDISCCURSADA AS 'ID_CURSADA'
     
     
-    FROM USUARIOCURSO U, SEMESTREDISCHISTORICO S, disciplinahistorico DH, disciplina D, CURSO C
+    FROM usuariocurso U, semestredischistorico S, disciplinahistorico DH, disciplina D, curso C
     
     WHERE U.idSemestre = S.idSemestre
     AND   S.idDiscCursada = DH.idDiscCursada
@@ -39,6 +39,7 @@
     AND   U.idSemestre = '".$semestre."'
     AND   U.IDCURSO = '".$idcurso."';";
     $res=mysqli_query($conn,$sql); 
+
     while($row = $res->fetch_assoc()){
         echo "<div>";
         echo "<span><a role=\"button\" class=\"btn btn-outline-primary my-2\" href=\"index.php?page=detalhedisciplina&nomeDisciplina=".$row['NOME_DISCIPLINA']."&idCursada=".$row['ID_CURSADA']."&idSemestre=".$semestre."&nomeCurso=".$nomeCurso."\">".$row['NOME_DISCIPLINA']."</a></span>";

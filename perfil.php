@@ -22,10 +22,9 @@
         $sql .=" WHERE idAluno ='".$idAluno."';";
         mysqli_query($conn,$sql);
 
-        echo $sql;
-        // success window.history.go(-2); 
+        // 
         if($sql){
-            echo '<script type="application/javascript">alert("Perfil atualizado!"); </script>';
+            echo '<script type="application/javascript">alert("Perfil atualizado!");success window.history.go(-2);  </script>';
 
         }else{
             echo '<script type="application/javascript">alert("Houve um problema. Tente novamente...".mysql_error()); window.history.go(-1);</script>';

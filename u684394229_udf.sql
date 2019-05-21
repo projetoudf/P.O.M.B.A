@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Maio-2019 às 16:49
+-- Generation Time: 21-Maio-2019 às 13:12
 -- Versão do servidor: 10.1.39-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -153,13 +153,20 @@ INSERT INTO `disciplina` (`idDisciplina`, `nome`) VALUES
 
 CREATE TABLE `disciplinahistorico` (
   `idDiscCursada` int(11) NOT NULL,
-  `diaSemana` varchar(50) NOT NULL,
-  `horario` int(11) DEFAULT NULL,
+  `diaSemana` varchar(50) DEFAULT NULL,
+  `horario` varchar(50) DEFAULT NULL,
   `turno` varchar(50) DEFAULT NULL,
   `emailProfessor` varchar(100) DEFAULT NULL,
   `nomeProfessor` varchar(100) DEFAULT NULL,
   `idDisciplina` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `disciplinahistorico`
+--
+
+INSERT INTO `disciplinahistorico` (`idDiscCursada`, `diaSemana`, `horario`, `turno`, `emailProfessor`, `nomeProfessor`, `idDisciplina`) VALUES
+(6, 'segunda', 'primeiro', 'matutino', 'a', 'a', 1);
 
 -- --------------------------------------------------------
 
@@ -173,6 +180,14 @@ CREATE TABLE `falta` (
   `diaFalta` date DEFAULT NULL,
   `idDiscCursada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `falta`
+--
+
+INSERT INTO `falta` (`qtdFalta`, `idFalta`, `diaFalta`, `idDiscCursada`) VALUES
+(6, 2, '2019-05-21', 6),
+(2, 3, '2019-05-17', 6);
 
 -- --------------------------------------------------------
 
@@ -198,6 +213,13 @@ CREATE TABLE `lembretes` (
   `conteudo` varchar(250) NOT NULL,
   `idAluno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `lembretes`
+--
+
+INSERT INTO `lembretes` (`idlembrete`, `data`, `titulo`, `conteudo`, `idAluno`) VALUES
+(2, '2019-05-19 16:51:28', 'prova de portugues', 'dia 5 de junho', 1);
 
 -- --------------------------------------------------------
 
@@ -250,6 +272,15 @@ CREATE TABLE `resumos` (
   `idDiscCursada` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `resumos`
+--
+
+INSERT INTO `resumos` (`idResumo`, `tituloResumo`, `conteudoResumo`, `idDiscCursada`) VALUES
+(3, 'teste3', 'teste3', 6),
+(4, 'teste3', 'teste3', 6),
+(5, 'AULA 26/06 - METODOS DE QUANTIFICAÇÃO', 'TESTE DE CONTEUDO', 6);
+
 -- --------------------------------------------------------
 
 --
@@ -261,6 +292,14 @@ CREATE TABLE `semestre` (
   `numeroSemestre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `semestre`
+--
+
+INSERT INTO `semestre` (`idSemestre`, `numeroSemestre`) VALUES
+(1, 1),
+(2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -268,9 +307,17 @@ CREATE TABLE `semestre` (
 --
 
 CREATE TABLE `semestredischistorico` (
+  `id` int(11) NOT NULL,
   `idSemestre` int(11) DEFAULT NULL,
   `idDiscCursada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `semestredischistorico`
+--
+
+INSERT INTO `semestredischistorico` (`id`, `idSemestre`, `idDiscCursada`) VALUES
+(3, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -327,10 +374,18 @@ INSERT INTO `usuario` (`idAluno`, `email`, `senha`, `dataNascimento`, `sexo`, `n
 --
 
 CREATE TABLE `usuariocurso` (
+  `id` int(11) NOT NULL,
   `idSemestre` int(11) DEFAULT NULL,
   `idAluno` int(11) DEFAULT NULL,
   `idCurso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuariocurso`
+--
+
+INSERT INTO `usuariocurso` (`id`, `idSemestre`, `idAluno`, `idCurso`) VALUES
+(33, 1, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -420,6 +475,7 @@ ALTER TABLE `semestre`
 -- Indexes for table `semestredischistorico`
 --
 ALTER TABLE `semestredischistorico`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `idSemestre` (`idSemestre`),
   ADD KEY `idDiscCursada` (`idDiscCursada`);
 
@@ -447,6 +503,7 @@ ALTER TABLE `usuario`
 -- Indexes for table `usuariocurso`
 --
 ALTER TABLE `usuariocurso`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `idSemestre` (`idSemestre`),
   ADD KEY `idAluno` (`idAluno`),
   ADD KEY `idCurso` (`idCurso`);
@@ -471,13 +528,13 @@ ALTER TABLE `curso`
 -- AUTO_INCREMENT for table `disciplinahistorico`
 --
 ALTER TABLE `disciplinahistorico`
-  MODIFY `idDiscCursada` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDiscCursada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `falta`
 --
 ALTER TABLE `falta`
-  MODIFY `idFalta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idFalta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `frasesmotivacionais`
@@ -489,7 +546,7 @@ ALTER TABLE `frasesmotivacionais`
 -- AUTO_INCREMENT for table `lembretes`
 --
 ALTER TABLE `lembretes`
-  MODIFY `idlembrete` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idlembrete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notas`
@@ -507,13 +564,19 @@ ALTER TABLE `recupsenha`
 -- AUTO_INCREMENT for table `resumos`
 --
 ALTER TABLE `resumos`
-  MODIFY `idResumo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idResumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `semestre`
 --
 ALTER TABLE `semestre`
-  MODIFY `idSemestre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSemestre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `semestredischistorico`
+--
+ALTER TABLE `semestredischistorico`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `telefone`
@@ -532,6 +595,12 @@ ALTER TABLE `tiponotas`
 --
 ALTER TABLE `usuario`
   MODIFY `idAluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `usuariocurso`
+--
+ALTER TABLE `usuariocurso`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables

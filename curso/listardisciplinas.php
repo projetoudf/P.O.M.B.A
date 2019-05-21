@@ -25,7 +25,7 @@
                 curso.nomeCurso AS 'NOME_CURSO', 
                 disciplinaHistorico.idDiscCursada AS 'ID_CURSADA'
 
-        FROM usuariocurso
+        FROM usuarioCurso
 
         INNER JOIN curso ON curso.idCurso = usuarioCurso.idCurso
         INNER JOIN semestre ON semestre.idSemestre = usuarioCurso.idSemestre

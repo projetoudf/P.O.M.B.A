@@ -54,7 +54,7 @@
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <?php
-                            $sql="select curso.nomeCurso, usuariocurso.idSemestre, curso.idCurso from curso inner join usuariocurso on usuariocurso.idCurso = curso.idCurso where idAluno='".$_SESSION['id']."';";
+                            $sql="select distinct curso.nomeCurso, usuariocurso.idSemestre, curso.idCurso from curso inner join usuariocurso on usuariocurso.idCurso = curso.idCurso where idAluno='".$_SESSION['id']."';";
                             $res=mysqli_query($conn,$sql); 
                             while($row = $res->fetch_assoc()){
                                 echo "<li>";

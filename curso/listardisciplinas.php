@@ -20,24 +20,21 @@
 
 
 
-    $sql="SELECT  
+    $sql="SELECT usuario.idAluno as 'ID_ALUNO',
+                disciplina.nome AS 'NOME_DISCIPLINA',
+                curso.nomeCurso AS 'NOME_CURSO', 
+                disciplinahistorico.idDiscCursada AS 'ID_CURSADA'
 
-    U.IDALUNO AS 'ID_ALUNO',
-    U.IDSEMESTRE AS 'CODIGO_SEMESTRE',
-    C.NOMECURSO AS 'NOME_CURSO',
-    D.NOME AS 'NOME_DISCIPLINA',
-    DH.IDDISCCURSADA AS 'ID_CURSADA'
-    
-    
-    FROM usuariocurso U, semestredischistorico S, disciplinahistorico DH, disciplina D, curso C
-    
-    WHERE U.idSemestre = S.idSemestre
-    AND   S.idDiscCursada = DH.idDiscCursada
-    AND   DH.IDDISCIPLINA = D.IDDISCIPLINA
-    AND   U.IDCURSO =  C.IDCURSO
-    AND   U.idAluno ='".$_SESSION['id']."'
-    AND   U.idSemestre = '".$semestre."'
-    AND   U.IDCURSO = '".$idcurso."';";
+        FROM usuariocurso
+
+        INNER JOIN curso ON curso.idCurso = usuariocurso.idCurso
+        INNER JOIN semestre ON semestre.idSemestre = usuariocurso.idSemestre
+        INNER JOIN usuario ON usuario.idAluno = usuariocurso.idAluno
+        INNER JOIN disciplinahistorico ON disciplinahistorico.idDiscCursada = usuariocurso.idDiscCursada
+        INNER JOIN disciplina ON disciplina.idDisciplina = disciplinahistorico.idDisciplina
+        WHERE   usuariocurso.idAluno ='".$_SESSION['id']."'
+        AND   usuariocurso.idSemestre = '".$semestre."'
+        AND   usuariocurso.IDCURSO = '".$idcurso."';";
     $res=mysqli_query($conn,$sql); 
 
     while($row = $res->fetch_assoc()){

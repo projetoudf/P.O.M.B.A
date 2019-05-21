@@ -5,7 +5,7 @@
 
 	//inclusão de páginas
 	switch (@$_REQUEST["page"]) {
-		//cadastro		
+		//cadastro e perfil		
 		case 'cadastro':
 			include("cadastro.php");
 			break;
@@ -18,6 +18,9 @@
 		case 'mensagens':
 			include("contato/listarMensagens.php");
 			break;
+		case 'perfil':
+			include("perfil.php");
+			break;	
 		//curso		
 		case 'adicionarcurso':
 			include("curso/adicionarcurso.php");

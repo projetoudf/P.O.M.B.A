@@ -7,7 +7,6 @@
         $idcursada = $_REQUEST['idCursada'];
 
         $sql = "INSERT INTO resumos (tituloResumo, conteudoResumo, idDiscCursada) VALUES ('$titulo', '$conteudo', '$idcursada');";
-        echo $sql;
         mysqli_query($conn,$sql);
         if($sql){
             echo '<script type="application/javascript">alert("Resumo salvo com sucesso!"); window.history.go(-2);</script>';

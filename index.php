@@ -2,6 +2,7 @@
     session_start();
     ini_set('default_charset', 'UTF-8');
     require "conn.php";
+    
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +66,7 @@
                     </ul>
                 </li>
                 
-                <li>
+                <!--<li>
                     <a href="#">
                         <i class="fas fa-briefcase"></i>
                         Grade Horária
@@ -85,9 +86,16 @@
                             <a href="index.php?page=lembretes">Lembretes</a>
                         </li>
                     </ul>
+                </li>-->
+                <li>
+                    <a href="index.php?page=lembretes">
+                        <i class="fas fa-copy"></i>
+                        Lembretes
+                    </a>
+
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="index.php?page=perfil&idAluno=<?php echo $_SESSION['id']; ?>">
                         <i class="fas fa-image"></i>
                         Meu Perfil
                     </a>

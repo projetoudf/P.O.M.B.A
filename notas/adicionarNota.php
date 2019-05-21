@@ -7,7 +7,6 @@
         $idcursada = $_REQUEST['idCursada'];
 
         $sql = "INSERT INTO notas (tipoNota, valor, idDiscCursada) VALUES ('$tiponota', '$valor', '$idcursada');";
-        echo $sql;
         mysqli_query($conn,$sql);
         if($sql){
             echo '<script type="application/javascript">alert("Nota adicionada com sucesso!"); window.history.go(-2);</script>';

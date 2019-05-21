@@ -13,8 +13,8 @@ require "../conn.php";
     $horario = $_REQUEST['horario' . $i];
     $nomeprofessor = $_REQUEST['nomeprofessor' . $i];
     $emailprofessor = $_REQUEST['emailprofessor' . $i];
-    $insert .= "INSERT INTO disciplinahistorico (diaSemana, horario, turno, nomeProfessor, emailProfessor, idDisciplina ) VALUES ('".$dia."', '".$horario."', '".$turno."', '".$nomeprofessor."', '".$emailprofessor."', '". $iddisciplina."'); ";
-    $insert .= "INSERT INTO usuariocurso (idSemestre, idAluno, idCurso, idDiscCursada) VALUES ('$semestre', '$id', '$curso', (select MAX(idDiscCursada) FROM disciplinahistorico));";
+    $insert .= "INSERT INTO disciplinaHistorico (diaSemana, horario, turno, nomeProfessor, emailProfessor, idDisciplina ) VALUES ('".$dia."', '".$horario."', '".$turno."', '".$nomeprofessor."', '".$emailprofessor."', '". $iddisciplina."'); ";
+    $insert .= "INSERT INTO usuarioCurso (idSemestre, idAluno, idCurso, idDiscCursada) VALUES ('$semestre', '$id', '$curso', (select MAX(idDiscCursada) FROM disciplinaHistorico));";
   }
   $conn->multi_query($insert);
 

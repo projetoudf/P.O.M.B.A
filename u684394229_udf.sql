@@ -148,10 +148,10 @@ INSERT INTO `disciplina` (`idDisciplina`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `disciplinahistorico`
+-- Estrutura da tabela `disciplinaHistorico`
 --
 
-CREATE TABLE `disciplinahistorico` (
+CREATE TABLE `disciplinaHistorico` (
   `idDiscCursada` int(11) NOT NULL,
   `diaSemana` varchar(50) DEFAULT NULL,
   `horario` varchar(50) DEFAULT NULL,
@@ -162,10 +162,10 @@ CREATE TABLE `disciplinahistorico` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `disciplinahistorico`
+-- Extraindo dados da tabela `disciplinaHistorico`
 --
 
-INSERT INTO `disciplinahistorico` (`idDiscCursada`, `diaSemana`, `horario`, `turno`, `emailProfessor`, `nomeProfessor`, `idDisciplina`) VALUES
+INSERT INTO `disciplinaHistorico` (`idDiscCursada`, `diaSemana`, `horario`, `turno`, `emailProfessor`, `nomeProfessor`, `idDisciplina`) VALUES
 (6, 'segunda', 'primeiro', 'matutino', 'a', 'a', 1),
 (8, 'segunda', 'primeiro', 'matutino', 'a', 'a', 2),
 (9, 'segunda', 'primeiro', 'matutino', 'a', 'a', 1);
@@ -427,9 +427,9 @@ ALTER TABLE `disciplina`
   ADD PRIMARY KEY (`idDisciplina`);
 
 --
--- Indexes for table `disciplinahistorico`
+-- Indexes for table `disciplinaHistorico`
 --
-ALTER TABLE `disciplinahistorico`
+ALTER TABLE `disciplinaHistorico`
   ADD PRIMARY KEY (`idDiscCursada`),
   ADD KEY `idDisciplina` (`idDisciplina`);
 
@@ -534,9 +534,9 @@ ALTER TABLE `curso`
   MODIFY `idCurso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
--- AUTO_INCREMENT for table `disciplinahistorico`
+-- AUTO_INCREMENT for table `disciplinaHistorico`
 --
-ALTER TABLE `disciplinahistorico`
+ALTER TABLE `disciplinaHistorico`
   MODIFY `idDiscCursada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
@@ -610,16 +610,16 @@ ALTER TABLE `usuariocurso`
 --
 
 --
--- Limitadores para a tabela `disciplinahistorico`
+-- Limitadores para a tabela `disciplinaHistorico`
 --
-ALTER TABLE `disciplinahistorico`
-  ADD CONSTRAINT `disciplinahistorico_ibfk_1` FOREIGN KEY (`idDisciplina`) REFERENCES `disciplina` (`idDisciplina`);
+ALTER TABLE `disciplinaHistorico`
+  ADD CONSTRAINT `disciplinaHistorico_ibfk_1` FOREIGN KEY (`idDisciplina`) REFERENCES `disciplina` (`idDisciplina`);
 
 --
 -- Limitadores para a tabela `falta`
 --
 ALTER TABLE `falta`
-  ADD CONSTRAINT `falta_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
+  ADD CONSTRAINT `falta_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinaHistorico` (`idDiscCursada`);
 
 --
 -- Limitadores para a tabela `lembretes`
@@ -637,7 +637,7 @@ ALTER TABLE `log`
 -- Limitadores para a tabela `notas`
 --
 ALTER TABLE `notas`
-  ADD CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
+  ADD CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinaHistorico` (`idDiscCursada`);
 
 --
 -- Limitadores para a tabela `recupsenha`
@@ -649,14 +649,14 @@ ALTER TABLE `recupsenha`
 -- Limitadores para a tabela `resumos`
 --
 ALTER TABLE `resumos`
-  ADD CONSTRAINT `resumos_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
+  ADD CONSTRAINT `resumos_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinaHistorico` (`idDiscCursada`);
 
 --
 -- Limitadores para a tabela `semestredischistorico`
 --
 ALTER TABLE `semestredischistorico`
   ADD CONSTRAINT `semestredischistorico_ibfk_1` FOREIGN KEY (`idSemestre`) REFERENCES `semestre` (`idSemestre`),
-  ADD CONSTRAINT `semestredischistorico_ibfk_2` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
+  ADD CONSTRAINT `semestredischistorico_ibfk_2` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinaHistorico` (`idDiscCursada`);
 
 --
 -- Limitadores para a tabela `telefone`

@@ -7,7 +7,7 @@
 ?>
 <div>
 <a role="button" class="btn btn-info " href="index.php?page=adicionarresumo&idCursada=<?php echo $idcursada; ?>">Adicionar Novo Resumo</a>
-<a role="button" class="btn btn-warning  " href="index.php">Notas</a>
+<a role="button" class="btn btn-warning  " href="index.php?page=notas&idCursada=<?php echo $idcursada; ?>&nomedisciplina=<?php echo $nomedisciplina; ?>&semestre=<?php echo $semestre; ?>">Notas</a>
 <a role="button" class="btn btn-danger " href="index.php?page=faltas&idCursada=<?php echo $idcursada; ?>&nomedisciplina=<?php echo $nomedisciplina; ?>&semestre=<?php echo $semestre; ?>">Faltas</a>
 <a role="button" class="btn btn-danger float-right" href="javascript:window.history.go(-1);">Voltar</a>
 

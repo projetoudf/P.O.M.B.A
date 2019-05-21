@@ -1,6 +1,7 @@
 <?php
     $semestre = $_REQUEST['idSemestre'];
     $nomeCurso = $_REQUEST['nomeCurso'];
+    $idcurso = $_REQUEST['idCurso'];
 
     echo "<h3>".$nomeCurso." - ".$semestre."º Semestre </h3>";
 ?>
@@ -35,7 +36,8 @@
     AND   DH.IDDISCIPLINA = D.IDDISCIPLINA
     AND   U.IDCURSO =  C.IDCURSO
     AND   U.idAluno ='".$_SESSION['id']."'
-    AND   U.idSemestre = '".$semestre."';";
+    AND   U.idSemestre = '".$semestre."'
+    AND   U.IDCURSO = '".$idcurso."';";
     $res=mysqli_query($conn,$sql); 
     while($row = $res->fetch_assoc()){
         echo "<div>";

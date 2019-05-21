@@ -64,7 +64,16 @@
 		case 'excluirfalta':
 			include("faltas/excluirFalta.php");
 			break;
-		
+		//notas		
+		case 'notas':
+			include("notas/notas.php");
+			break;
+		case 'adicionarnota':
+			include("notas/adicionarNota.php");
+			break;
+		case 'excluirnota':
+			include("notas/excluirNota.php");
+			break;		
 		default:
 			include("dashboard.php");
 	}

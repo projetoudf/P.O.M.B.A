@@ -54,11 +54,11 @@
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <?php
-                            $sql="select curso.nomeCurso, usuariocurso.idSemestre from curso inner join usuariocurso on usuariocurso.idCurso = curso.idCurso where idAluno='".$_SESSION['id']."';";
+                            $sql="select curso.nomeCurso, usuariocurso.idSemestre, curso.idCurso from curso inner join usuariocurso on usuariocurso.idCurso = curso.idCurso where idAluno='".$_SESSION['id']."';";
                             $res=mysqli_query($conn,$sql); 
                             while($row = $res->fetch_assoc()){
                                 echo "<li>";
-                                echo "<a href=\"index.php?page=listardisciplinas&idSemestre=".$row['idSemestre']."&nomeCurso=".$row['nomeCurso']."\">".$row['nomeCurso']. " - " . $row['idSemestre']."</a>";
+                                echo "<a href=\"index.php?page=listardisciplinas&idSemestre=".$row['idSemestre']."&idCurso=".$row['idCurso']."&nomeCurso=".$row['nomeCurso']."\">".$row['nomeCurso']. " - " . $row['idSemestre']."</a>";
                                 echo "</li>";
                             }
                         ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Maio-2019 às 13:12
+-- Generation Time: 21-Maio-2019 às 15:21
 -- Versão do servidor: 10.1.39-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -242,9 +242,17 @@ CREATE TABLE `log` (
 
 CREATE TABLE `notas` (
   `idNota` int(11) NOT NULL,
-  `idDiscCursada` int(11) DEFAULT NULL,
-  `idTipoNota` int(11) DEFAULT NULL
+  `tipoNota` varchar(50) NOT NULL,
+  `valor` double NOT NULL,
+  `idDiscCursada` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `notas`
+--
+
+INSERT INTO `notas` (`idNota`, `tipoNota`, `valor`, `idDiscCursada`) VALUES
+(1, 'PRI', 2.5, 6);
 
 -- --------------------------------------------------------
 
@@ -329,20 +337,6 @@ CREATE TABLE `telefone` (
   `telefone` int(11) NOT NULL,
   `idTelefone` int(11) NOT NULL,
   `idCont` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tiponotas`
---
-
-CREATE TABLE `tiponotas` (
-  `idTipoNota` int(11) NOT NULL,
-  `PRI` double DEFAULT NULL,
-  `avaliacao` double DEFAULT NULL,
-  `trabalho` double DEFAULT NULL,
-  `idNota` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -448,8 +442,7 @@ ALTER TABLE `log`
 --
 ALTER TABLE `notas`
   ADD PRIMARY KEY (`idNota`),
-  ADD KEY `idDiscCursada` (`idDiscCursada`),
-  ADD KEY `idTipoNota` (`idTipoNota`);
+  ADD KEY `idDiscCursada` (`idDiscCursada`);
 
 --
 -- Indexes for table `recupsenha`
@@ -485,13 +478,6 @@ ALTER TABLE `semestredischistorico`
 ALTER TABLE `telefone`
   ADD PRIMARY KEY (`idTelefone`),
   ADD KEY `idCont` (`idCont`);
-
---
--- Indexes for table `tiponotas`
---
-ALTER TABLE `tiponotas`
-  ADD PRIMARY KEY (`idTipoNota`),
-  ADD KEY `idNota` (`idNota`);
 
 --
 -- Indexes for table `usuario`
@@ -552,7 +538,7 @@ ALTER TABLE `lembretes`
 -- AUTO_INCREMENT for table `notas`
 --
 ALTER TABLE `notas`
-  MODIFY `idNota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idNota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `recupsenha`
@@ -583,12 +569,6 @@ ALTER TABLE `semestredischistorico`
 --
 ALTER TABLE `telefone`
   MODIFY `idTelefone` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tiponotas`
---
-ALTER TABLE `tiponotas`
-  MODIFY `idTipoNota` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -634,8 +614,7 @@ ALTER TABLE `log`
 -- Limitadores para a tabela `notas`
 --
 ALTER TABLE `notas`
-  ADD CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`),
-  ADD CONSTRAINT `notas_ibfk_2` FOREIGN KEY (`idTipoNota`) REFERENCES `tiponotas` (`idTipoNota`);
+  ADD CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`idDiscCursada`) REFERENCES `disciplinahistorico` (`idDiscCursada`);
 
 --
 -- Limitadores para a tabela `recupsenha`
@@ -661,12 +640,6 @@ ALTER TABLE `semestredischistorico`
 --
 ALTER TABLE `telefone`
   ADD CONSTRAINT `telefone_ibfk_1` FOREIGN KEY (`idCont`) REFERENCES `contato` (`idCont`);
-
---
--- Limitadores para a tabela `tiponotas`
---
-ALTER TABLE `tiponotas`
-  ADD CONSTRAINT `tiponotas_ibfk_1` FOREIGN KEY (`idNota`) REFERENCES `notas` (`idNota`);
 
 --
 -- Limitadores para a tabela `usuariocurso`

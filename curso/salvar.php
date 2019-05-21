@@ -8,6 +8,8 @@ require "../conn.php";
 
   $sql = "INSERT INTO usuariocurso (idSemestre, idAluno, idCurso) VALUES ('$semestre', '$id', '$curso');";
   $conn->multi_query($sql);
+  echo $sql;
+  echo "<br>";
   $insert = null;
   for ($i = 1; $i <= $qtdDisciplinas; $i++) {
     $iddisciplina = $_REQUEST['disciplina' . $i];
@@ -20,11 +22,11 @@ require "../conn.php";
     $insert .= "INSERT INTO semestredischistorico (idSemestre, idDiscCursada) VALUES ('$semestre', (select MAX(idDiscCursada) FROM disciplinahistorico));";
   }
   $conn->multi_query($insert);
+  echo $insert;
 
-
-  // success ;
+  // success window.location.href ="/index.php";
   if($insert){
-    echo '<script type="application/javascript">alert("Salvo com sucesso!");window.location.href ="/index.php";</script> ';
+    echo '<script type="application/javascript">alert("Salvo com sucesso!");</script> ';
 
   }else{
     echo '<script type="application/javascript">alert("Houve um problema. Tente novamente...".mysql_error());window.history.go(-1); </script>';

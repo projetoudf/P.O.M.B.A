@@ -15,7 +15,7 @@
     
 <HR>
 <div>
-    <a role="button" class="btn btn-info " href="index.php?page=novadisciplina&idCurso=<?php echo $idcurso; ?>&idSemestre=<?php echo $semestre; ?>">Adicionar Nova Disciplina</a>
+    <a role="button" class="btn btn-info " href="index.php?page=novadisciplina&idCurso=<?php echo $idcurso; ?>&idSemestre=<?php echo $semestre; ?>"><i class="fas fa-plus"></i> Adicionar Nova Disciplina</a>
 </div>
 
 <HR>

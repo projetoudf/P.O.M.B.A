@@ -19,10 +19,14 @@ if($row == 1) {
 	$_SESSION['id'] = $dados['idAluno'];
 	$_SESSION['admin'] = $dados['admin'];
 
+	$sql = "INSERT INTO LOG (data, ip, browser, idAluno) VALUES (now(), '".$_SERVER['REMOTE_ADDR']."', '".$_SERVER['HTTP_USER_AGENT']."', '".$_SESSION['id']."');";
+	mysqli_query($conn, $sql);
 	header('Location: index.php');
 
 	exit();
 } else {
+	$sql = "INSERT INTO LOG (data, ip, browser, idAluno) VALUES (now(), '".$_SERVER['REMOTE_ADDR']."', '".$_SERVER['HTTP_USER_AGENT']."', null);";
+	mysqli_query($conn, $sql);
 	echo '<script type="application/javascript">alert("Login OU Senha INCORRETOS. TENTE NOVAMENTE."); window.location.href ="index.php";</script>';
 	exit();
 }

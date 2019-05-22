@@ -5,21 +5,21 @@
 
         <div class="form-group col-md-6">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
         </div>
         <div class="form-group col-md-6">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
         </div>
     </div>
     <div class="form-row col">
         <div class="form-group col-md-6">
             <label for="dataNascimento">Data de nascimento</label>
-            <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="Data de nascimento">
+            <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="Data de nascimento" required>
         </div>
         <div class="form-group col-md-6">
             <label for="sexo">Sexo</label>
-            <select id="sexo" name="sexo" class="form-control">
+            <select id="sexo" name="sexo" class="form-control" required>
                 <option selected>Escolher...</option>
                 <option value="masculino">Masculino</option>
                 <option value="feminino">Feminino</option>
@@ -30,11 +30,11 @@
     <div class="form-row col">
         <div class="form-group col-md-6">
             <label for="senha">Senha</label>
-            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
         </div>
         <div class="form-group col-md-6">
             <label for="confirmarSenha">Confirme a Senha</label>
-            <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme a Senha">
+            <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme a Senha" required>
         </div>
     </div>
     <div class="form-row col">

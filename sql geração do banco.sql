@@ -118,6 +118,7 @@ ALTER TABLE lembretes ADD FOREIGN KEY(idAluno) REFERENCES usuario (idAluno);
 ALTER TABLE notas ADD FOREIGN KEY(idDiscCursada) REFERENCES disciplinaHistorico (idDiscCursada);
 ALTER TABLE falta ADD FOREIGN KEY(idDiscCursada) REFERENCES disciplinaHistorico (idDiscCursada);
 ALTER TABLE resumos ADD FOREIGN KEY(idDiscCursada) REFERENCES disciplinaHistorico (idDiscCursada);
+ALTER TABLE usuario ADD `admin` TINYINT NOT NULL DEFAULT '0' AFTER nome;
 
 
 

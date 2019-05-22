@@ -16,7 +16,8 @@ if($row == 1) {
 	$_SESSION['email'] = $dados['email'];
 	$_SESSION['nome'] = $dados['nome'];
     $_SESSION['sexo'] = $dados['sexo'];
-    $_SESSION['id'] = $dados['idAluno'];
+	$_SESSION['id'] = $dados['idAluno'];
+	$_SESSION['admin'] = $dados['admin'];
 
 	header('Location: index.php');
 

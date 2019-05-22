@@ -3,7 +3,15 @@
     $nomeCurso = $_REQUEST['nomeCurso'];
     $nomedisciplina = $_REQUEST['nomeDisciplina'];
     $idcursada = $_REQUEST['idCursada'];
-    echo "<h3>".$nomedisciplina." - ".$nomeCurso." - ".$semestre."º Semestre</h3><hr>";
+    echo "<div class=\"container\">";
+    echo "<div class=\"row\">";
+    echo "<h4>".$nomedisciplina." - ".$nomeCurso." - ".$semestre."º Semestre</h4>";
+    echo '<button onclick="if(confirm(\'tem certeza que deseja excluir o A DISCIPLINA '.$nomedisciplina.' do '.$semestre.'º SEMESTRE DO CURSO '.$nomeCurso.'? ESTA AÇÃO NÃO PODE SER DESFEITA!!!\')){location.href=\'curso/excluirdisciplina.php?idCursada='.$idcursada.'\';}else{false;}"  class=\'btn btn-danger btn-sm ml-auto\'><i class="fas fa-trash-alt"></i></button>';
+    echo "</div>";
+    echo "</div>";
+    echo "<hr>";
+
+    
 ?>
 <div>
 <a role="button" class="btn btn-info " href="index.php?page=adicionarresumo&idCursada=<?php echo $idcursada; ?>">Adicionar Novo Resumo</a>

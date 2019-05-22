@@ -34,6 +34,9 @@
 		case 'detalhedisciplina':
 			include("curso/detalheDisciplina.php");
 			break;
+		case 'novadisciplina':
+			include("curso/novadisciplina.php");
+			break;	
 		//resumo		
 		case 'adicionarresumo':
 			include("resumo/adicionarResumo.php");

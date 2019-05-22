@@ -1,6 +1,6 @@
 <style>
     body{
-        background-image: url(POMBO1.JPG);
+        background-image: url("POMBO1.jpg");
         background-repeat: no-repeat;
         background-position: center;
     }

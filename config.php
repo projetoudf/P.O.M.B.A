@@ -76,7 +76,12 @@
 			break;
 		case 'excluirnota':
 			include("notas/excluirNota.php");
-			break;		
+			break;
+			
+		// outros
+		case 'faq':
+			include("faq.php");
+			break;
 		default:
 			include("dashboard.php");
 	}

@@ -102,7 +102,7 @@
                 </li>
                 <?php } ?> <!-- END DO IF LOGADO -->
                 <li>
-                    <a href="#">
+                    <a href="index.php?page=faq">
                         <i class="fas fa-question"></i>
                         FAQ
                     </a>

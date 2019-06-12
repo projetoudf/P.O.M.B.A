@@ -3,14 +3,14 @@
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          O que é o P.O.M.B.A ?
+          O que é o Gestão UDF ?
         </button>
       </h5>
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-      &emsp;O Projeto Otimizado de Manutenção Básica Acadêmica (P.O.M.B.A) foi criado e pensado para ajudar os alunos da faculdade UDF, de todos os cursos que a instituição oferece, reunindo todas as funcionalidades que o aluno irá necessitar durante o curso. O ajudando a reunir todas as informações que o estudante irá precisar durante o curso, desde a montar um calendário com as matérias do semestre até desenvolver resumos para auxiliar nos estudos para as provas. Além de estar servindo para montar um histórico de notas, armazenando todas as informações que forem cadastradas, do semestre de calouro até o último semestre, sendo possível o aluno acessar todas as informações de todas as matérias cadastradas no decorrer do tempo.
+      &emsp;O GESTÃO UDF foi criado e pensado para ajudar os alunos da faculdade UDF, de todos os cursos que a instituição oferece, reunindo todas as funcionalidades que o aluno irá necessitar durante o curso. O ajudando a reunir todas as informações que o estudante irá precisar durante o curso, desde a montar um calendário com as matérias do semestre até desenvolver resumos para auxiliar nos estudos para as provas. Além de estar servindo para montar um histórico de notas, armazenando todas as informações que forem cadastradas, do semestre de calouro até o último semestre, sendo possível o aluno acessar todas as informações de todas as matérias cadastradas no decorrer do tempo.
       <b>Estamos em fase pré-alpha. Use por conta e risco. Não nos responsabilizamos pela possível perda de dados.</b>
       </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Por que POMBA?
+          Por que Gestão UDF?
         </button>
       </h5>
     </div>
@@ -81,7 +81,7 @@
     </div>
     <div id="seis" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-      &emsp;Pode nos mandar uma mensagem ou enviar um pull request no github. O projeto está disponível em <a href="https://github.com/projetoudf/P.O.M.B.A">P.O.M.B.A</a>
+      &emsp;Pode nos mandar uma mensagem ou enviar um pull request no github. O projeto está disponível em <a href="https://github.com/projetoudf/P.O.M.B.A">Gestão UDF</a>
       </div>
     </div>
   </div>

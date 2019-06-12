@@ -34,7 +34,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <a href="index.php"><h3>P.O.M.B.A</h3></a>
+                <a href="index.php"><h3>Gestão UDF</h3></a>
                 <a href="index.php"><strong><img src="Pombo.jpg" alt="PB" height="35px" style="border-radius: 50%;"></strong></a>
             </div>
 
